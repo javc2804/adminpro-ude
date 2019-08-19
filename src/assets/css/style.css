@@ -61,6 +61,10 @@ Global Styles
 * {
   outline: none; }
 
+.pointer {
+  cursor: pointer;
+}
+
 body {
   background: #fff;
   font-family: "Montserrat", sans-serif;
