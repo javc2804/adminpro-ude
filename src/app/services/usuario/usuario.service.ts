@@ -42,7 +42,6 @@ export class UsuarioService {
   }
 
   login( usuario: Usuario, recordar: boolean = false ){
-    console.log(usuario);
     if ( recordar ) {
       localStorage.setItem('email', usuario.email + '');
     } else {
@@ -86,5 +85,17 @@ export class UsuarioService {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
+  }
+
+  actualizarUsuario( usuario: Usuario ) {
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    url += '?token=' + this.token;
+    
+    return this.http.put( url, usuario )
+      .pipe(map( ( resp: any ) => {
+        let usuarioDB: Usuario = resp.usuario;
+        this.guardarStorage( resp.usuario._id, this.token, usuarioDB)
+        swal('Usuario actualizado: ', resp.usuario.nombre, 'success');     
+      }))
   }
 }
