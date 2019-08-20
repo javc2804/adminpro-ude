@@ -1,5 +1,5 @@
 <div class="row animated fadeIn">
-    <div class="col-lg-7">
+    <div class="col-lg-5">
       <div class="card">
           <div class="card-body">
               <h4 class="card-title"> Profile user </h4>
@@ -29,13 +29,14 @@
   </div>
   <div class="row">
     <div class="col-lg-7">
-      <div class="card">
+      <div class="card" aling="center">
         <div class="card-body">
             <h4 class="card-title"> Photo user </h4>
             <h6 class="card-subtitle"> user name </h6>
-            <img src="">
-            <input type="file"> <br> <br>
-            <button type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+            <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" class="w150">
+            <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
+            <input (change)="seleccionImagen( $event.target.files[0] )" type="file"> <br> <br>
+            <button (click)="cambiarImagen()" [disabled]=!imagenSubir type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
               <i class="fa fa-save"></i>
               Update photo
             </button>

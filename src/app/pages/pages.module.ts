@@ -30,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
         ProfileComponent
     ],
     imports: [
+        CommonModule,
         SharedModule,
         PAGES_ROUTES,
         FormsModule,

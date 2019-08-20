@@ -65,6 +65,13 @@ Global Styles
   cursor: pointer;
 }
 
+
+.w150 {
+  display: block;
+  margin: auto;
+  width: 150px;
+}
+
 body {
   background: #fff;
   font-family: "Montserrat", sans-serif;
