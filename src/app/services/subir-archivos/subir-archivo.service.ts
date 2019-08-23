@@ -14,6 +14,7 @@ export class SubirArchivoService {
       let xhr = new XMLHttpRequest();
       formData.append( 'imagen', archivo, archivo.name );
       xhr.onreadystatechange = function() {
+        console.log(xhr.readyState,xhr.status);
         if ( xhr.readyState === 4 ) {
           if ( xhr.status === 200 ) {
             console.log('imagen subida');
